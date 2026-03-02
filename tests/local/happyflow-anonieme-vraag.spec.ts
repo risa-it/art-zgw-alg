@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { loginAsAdmin } from './helpers/alg-zgw-local-login';
-import { startNewKccDossier } from './helpers/start-new-kcc-dossier';
+import { loginAsAdminLocal } from './helpers/LoginAsAdminLocal';
+import { startNewKccDossier } from './helpers/StartNewKccDossier';
 
 test('happyflow-anonieme-vraag', async ({ page }) => {
 
-  await loginAsAdmin(page);
+  await loginAsAdminLocal(page);
   await startNewKccDossier(page);
 
   await page.getByText('Anoniem').click();

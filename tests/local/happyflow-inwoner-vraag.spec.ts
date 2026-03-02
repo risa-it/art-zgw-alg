@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { loginAsAdmin } from './helpers/alg-zgw-local-login';
-import { startNewKccDossier } from './helpers/start-new-kcc-dossier';
+import { loginAsAdminLocal } from './helpers/LoginAsAdminLocal';
+import { startNewKccDossier } from './helpers/StartNewKccDossier';
 
 test('happyflow-inwoner-vraag.spec', async ({ page }) => {
 
-  await loginAsAdmin(page);
+  await loginAsAdminLocal(page);
   await startNewKccDossier(page);
 
   await page.getByRole('textbox').nth(3).click();
@@ -36,4 +36,5 @@ test('happyflow-inwoner-vraag.spec', async ({ page }) => {
   await page.waitForTimeout(500);
   await page.getByText('Doorsturen').click();
   await page.getByRole('button', { name: 'Ja' }).click();
+
 });
