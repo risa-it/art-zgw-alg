@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { loginAsAdmin } from './helpers/alg-zgw-local-login';
 import { startNewKccDossier } from './helpers/start-new-kcc-dossier';
 
-test('test', async ({ page }) => {
+test('happyflow-anonieme-vraag', async ({ page }) => {
 
   await loginAsAdmin(page);
   await startNewKccDossier(page);
@@ -26,7 +26,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox').nth(2).click();
   await page.getByRole('textbox').nth(2).fill('Het eventuele antwoord opde vraag komt hier.');
   await page.locator('.cds--checkbox-label').click();
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   await page.locator('v-button', { hasText: /Afronden/ }).click();
   await page.getByRole('button', { name: 'Ja' }).click();
 });
