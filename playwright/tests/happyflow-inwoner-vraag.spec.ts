@@ -5,7 +5,7 @@ import { retrieveResidentInfoByBsn } from './helpers/RetrieveResidentInfoByBsn';
 import { manuallyConfirmResidentInfo } from './helpers/ManuallyConfirmResidentInfo';
 import { fillOutQuestionFormSendQuestion } from './helpers/FillOutQuestionFormSendQuestion';
 
-test('happyflow-inwoner-vraag', async ({ page }) => {
+test('happyflow-inwoner-vraag.spec', async ({ page }) => {
   await loginAsAdminLocal(page);
   await startNewKccDossier(page);
   await retrieveResidentInfoByBsn(page)
