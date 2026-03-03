@@ -1,7 +1,6 @@
 import { Page } from '@playwright/test';
 
 export async function fillOutQuestionFormSendQuestion(page: Page) {
-  await page.locator('.cds--checkbox-label').click();
   await page.locator('#combobox-2').click();
   await page.getByText('Telefoongesprek').click();
   await page.locator('#combobox-4').click();
