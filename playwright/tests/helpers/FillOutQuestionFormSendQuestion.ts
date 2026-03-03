@@ -25,6 +25,6 @@ export async function fillOutQuestionFormSendQuestion(page: Page) {
   await page.getByRole('textbox').nth(2).click();
   await page.getByRole('textbox').nth(2).fill('Een interne notitie hier...');
   await page.waitForTimeout(500);
-  await page.getByText('Doorsturen').click();
+  await page.locator('v-button', { hasText: /Doorsturen/ }).click();
   await page.getByRole('button', { name: 'Ja' }).click();
 }
