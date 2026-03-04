@@ -1,24 +1,36 @@
 import { Page } from '@playwright/test';
 
 export async function fillOutQuestionFormHandledByOperator(page: Page) {
-  await page.getByRole('button', { name: 'Open menu' }).first().click();
-  await page.getByText('Telefoongesprek').click();
-  await page.getByRole('button', { name: 'Open menu' }).nth(1).click();
+
+  await page.locator ('v-select[name="contactType"]').click();
+  await page.getByLabel('Listbox').getByText('Telefoongesprek', { exact: true }).click();
+
+  await page.locator ('v-select[name="subject"]').click();
   await page.getByLabel('Listbox').getByText('Vraag', { exact: true }).click();
-  await page.getByRole('textbox').first().click();
-  await page.getByRole('textbox').first().fill('Onderwerp van de vraag komt hier.');
-  await page.locator('textarea').click();
-  await page.locator('textarea').fill('De daadwerkelijke vraag komt hier.');
-  await page.locator('#combobox-6').click();
-  await page.getByText('BZ - TOZO - TONK').click();
-  await page.locator('#combobox-14').click();
-  await page.getByText('[BZ:5] TOZO').click();
-  await page.locator('#combobox-16').click();
-  await page.getByText('[BZ:5M] Betaling').click();
+
+  await page.locator('v-input[name="concerning"]').click();
+  await page.locator('v-input[name="concerning"] input').fill('Onderwerp van vraag.');
+
+  await page.locator('v-input[name="clientQuestion"]').click();
+  await page.locator('v-input[name="clientQuestion"] textarea').fill('De vraag zelf.');
+
+
+  await page.locator ('v-select[name="selectedSkill"]').click();
+  await page.getByLabel('Listbox').getByText('CJG - Jeugdhulp', { exact: true }).click();
+
+  await page.locator ('v-select[name="selectedProductOrService"]').click();
+  await page.getByLabel('Listbox').getByText('[CJG - Jeugdhulp;12]').click();
+
+  await page.locator ('v-select[name="selectedQuestionType"]').click();
+  await page.getByLabel('Listbox').getByText('[CJG - Jeugdhulp:12B]').click();
+ 
   await page.locator('.cds--radio-button__appearance').first().click();
-  await page.getByRole('textbox').nth(2).click();
-  await page.getByRole('textbox').nth(2).fill('Het eventuele antwoord opde vraag komt hier.');
-  await page.locator('.cds--checkbox-label').click();
+  
+  await page.locator('v-input[name="answer"]').click();
+  await page.locator('v-input[name="answer"] textarea').fill('Het eventuele antwoord op de vraag komt hier.');
+  
+  await page.locator('v-input[name="reportingCode"]').click();
+
   await page.waitForTimeout(500);
   await page.locator('v-button', { hasText: /Afronden/ }).click();
   await page.getByRole('button', { name: 'Ja' }).click();
