@@ -16,7 +16,7 @@ test.describe('happyflow-bulk', () => {
     await fillOutQuestionFormHandledByOperator(page)
   });
 
-  test('happyflow-inwoner-vraag.spec', async ({ page }) => {
+  test('happyflow-inwoner-vraag', async ({ page }) => {
     await loginAsAdminLocal(page);
     await startNewKccDossier(page);
     await retrieveResidentInfoByBsn(page)
