@@ -3,8 +3,8 @@ import { retrieveResidentInfoByNameAndBirthDate} from '../pages/KCC-4-RetrieveRe
 
 export async function residentInfoByNameAndBirthDate(page: Page) {
 
-   const residentNameInfoPage = new retrieveResidentInfoByNameAndBirthDate(page);
+  const residentNameInfoPage = new retrieveResidentInfoByNameAndBirthDate(page);
    
-   await residentNameInfoPage.fillInNameAndBirthDate();
-   await residentNameInfoPage.searchAndControl();
+  await residentNameInfoPage.fillInNameAndBirthDate();
+  await residentNameInfoPage.searchAndControl();
 }

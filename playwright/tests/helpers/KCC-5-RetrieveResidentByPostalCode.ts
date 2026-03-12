@@ -4,8 +4,8 @@ import {retrieveResidentInfoByPostalCode} from '../pages/KCC-5-RetrieveResidentB
 
 export async function residentInfoByPostalCodeAndHouseNumber(page: Page) {
 
-   const residentPostalCodeInfoPage = new retrieveResidentInfoByPostalCode(page);
+  const residentPostalCodeInfoPage = new retrieveResidentInfoByPostalCode(page);
    
-   await residentPostalCodeInfoPage.fillInPostalCodeAndHouseNumber();
-   await residentPostalCodeInfoPage.searchAndControl();
+  await residentPostalCodeInfoPage.fillInPostalCodeAndHouseNumber();
+  await residentPostalCodeInfoPage.searchAndControl();
 }
