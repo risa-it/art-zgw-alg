@@ -6,6 +6,8 @@ import { fillOutQuestionFormSendQuestion } from './helpers/FillOutQuestionFormSe
 import { retrieveResidentInfoByNameAndBirthDate } from './helpers/RetrieveResidentByNameAndBirthDate';
 
 
+test.describe("workflow-resident-test", () => {
+  
 test('login', async ({ page })=>{
   await loginAsAdminLocal(page);
 });
@@ -31,4 +33,5 @@ test('login as admin, create new KCC dossier, fill in resident info by name/birt
 test('login as admin, create new KCC dossier, fill in resident info by name/birth date  fill in question- send question', async ({ page})=> {
   await retrieveResidentInfoByNameAndBirthDate(page);
   await fillOutQuestionFormSendQuestion(page);
+});
 });
