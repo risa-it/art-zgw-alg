@@ -11,7 +11,6 @@ export async function fillOutQuestionFormSendQuestion(page: Page) {
   await page.locator('v-input[name="clientQuestion"]').click();
   await page.locator('v-input[name="clientQuestion"] textarea').fill('De vraag zelf.');
 
-
   await page.locator ('v-select[name="selectedSkill"]').click();
   await page.getByLabel('Listbox').getByText('CJG - Jeugdhulp', { exact: true }).click();
   await page.locator ('v-select[name="selectedProductOrService"]').click();
@@ -31,5 +30,10 @@ export async function fillOutQuestionFormSendQuestion(page: Page) {
  
   await page.waitForTimeout(500);
   await page.locator('v-button', { hasText: /Doorsturen/ }).click();
+  
+  await page.waitForTimeout(500);
+  await page.getByRole('button', { name: 'Ja' }).click();
+
+  await page.getByRole('button', { name: 'Dossier Afsluiten' }).click();
   await page.getByRole('button', { name: 'Ja' }).click();
 }
