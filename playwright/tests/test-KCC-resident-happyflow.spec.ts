@@ -27,7 +27,7 @@ test ('login, create new dossier, find resident info by postalcode and house num
     await fillOutQuestionFormSendQuestion(page);
 });
 
-test ('checking if it works', async ({ page })=>{
+test ('login, create new dossier, add resident info, fill in question, add a second question', async ({ page })=>{
     await loginAndCreateKccDossier(page);
     await residentInfoByPostalCodeAndHouseNumber(page);
     await fillOutQuestionFormSendQuestionWithSecondQuestion(page);
