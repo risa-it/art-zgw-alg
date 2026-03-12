@@ -16,15 +16,18 @@ export class  retrieveResidentInfoByNameAndBirthDate {
     this.birthDate= page.getByRole('textbox', { name: 'dd-mm-jjjj' });
     this.searchButton= page.getByRole('button', { name: 'Zoeken' });
     this.selector= page.locator('v-select[label="Zoekresultaten"]');
-    this.controleCheckbox  = page.locator('v-input[name="isVerified"]');  
+    this.controleCheckbox = page.locator('v-input[name="isVerified"]');  
     }
 
-  async fillInNameAndBirthDate(){
+  async fillInName(text: string){
     await this.radioPersoonsGegevens.click();
     await this.lastName.click();
-    await this.lastName.fill('naam inwoner');
+    await this.lastName.fill(text);
+  }
+
+  async fillInBirthDate(text: string){
     await this.birthDate.click();
-    await this.birthDate.fill('01-03-2026');
+    await this.birthDate.fill(text);
   }
 
   async searchAndControl(){
@@ -33,7 +36,6 @@ export class  retrieveResidentInfoByNameAndBirthDate {
     await this.page.waitForTimeout(500);
     await this.page.locator('#combobox-14').click();
     await this.page.getByText('Barry • Paardelaan').click();
-    await this.page.locator('.cds--checkbox-label').click();
     await this.controleCheckbox.click();
     }
 }

@@ -22,15 +22,21 @@ export class  retrieveResidentInfoByPostalCode {
     this.controleCheckbox  = page.locator('v-input[name="isVerified"]');
     }
 
-  async fillInPostalCodeAndHouseNumber(){
+  async fillInPostalCode(text: string){
     await this.radioPersoonsGegevens.click();
     await this.postalCode.click();
-    await this.postalCode.fill('2544GT');
-    await this.houseNumber.click();
-    await this.houseNumber.fill('55');
-    await this.houseLetter.click();
-    await this.houseLetter.fill('D')
+    await this.postalCode.fill(text);
     }
+
+  async fillHouseNumber(text: string){
+    await this.houseNumber.click();
+    await this.houseNumber.fill(text);
+    };
+
+  async fillHouseLetter(text: string){
+    await this.houseLetter.click();
+    await this.houseLetter.fill(text)
+  };
 
   async searchAndControl(){
     await this.page.waitForTimeout(500);

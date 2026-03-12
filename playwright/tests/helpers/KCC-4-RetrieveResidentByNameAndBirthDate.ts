@@ -5,6 +5,7 @@ export async function residentInfoByNameAndBirthDate(page: Page) {
 
   const residentNameInfoPage = new retrieveResidentInfoByNameAndBirthDate(page);
    
-  await residentNameInfoPage.fillInNameAndBirthDate();
+  await residentNameInfoPage.fillInName('Inwoner Naam');
+  await residentNameInfoPage.fillInBirthDate('03-01-2025');
   await residentNameInfoPage.searchAndControl();
 }

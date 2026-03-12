@@ -6,6 +6,8 @@ export async function residentInfoByPostalCodeAndHouseNumber(page: Page) {
 
   const residentPostalCodeInfoPage = new retrieveResidentInfoByPostalCode(page);
    
-  await residentPostalCodeInfoPage.fillInPostalCodeAndHouseNumber();
+  await residentPostalCodeInfoPage.fillInPostalCode('2555BD');
+  await residentPostalCodeInfoPage.fillHouseNumber('55');
+  await residentPostalCodeInfoPage.fillHouseLetter('D');
   await residentPostalCodeInfoPage.searchAndControl();
 }
